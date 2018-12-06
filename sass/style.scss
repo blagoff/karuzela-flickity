@@ -1,0 +1,40 @@
+.carousel-cell {
+  width: 100%; /* full width */
+  height: 50vh; /* height of carousel */
+  margin-right: 10px; 
+
+} 
+
+.carousel-cell > div{
+	 width: 100%; /* full width */
+ 	 height: 50vh;
+}
+
+
+  .container {
+  	max-width: 1200px;
+   	top: 300px;
+   	text-align: center;
+    position: absolute;
+    color:white;
+    font-size:30px;
+    font-family: 'Spirax';
+    font-weight: bold;
+  }
+ 
+.flickity-page-dots .dot {
+  display: none;
+}
+
+
+.link{
+	text-align: center;
+	margin-top: 20px;
+
+
+	a{
+		padding: 2%;
+		text-decoration: none;
+		font-family: 'Droid', sans-serif;
+	}
+}
