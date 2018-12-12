@@ -1,4 +1,5 @@
-var elem = document.querySelector('.main-carousel');
+var elem = document.querySelector('.carousel');
+
 
 var flkty = new Flickity( elem, {
   // options
@@ -6,26 +7,18 @@ var flkty = new Flickity( elem, {
   contain: true,
   imagesLoaded: true,
   lazyload: true,
-  hash: true
-}
-);
-
-/*var flkty2 = new Flickity('.carousel');
+  hash: true,
+});
 
 var previousWrappedButton = document.querySelector('.button--previous-wrapped');
 previousWrappedButton.addEventListener( 'click', function() {
-  flkty2.previous( true );
- 
-});*/
+  flkty.previous( true );
+});
 
 
+var progressBar = document.querySelector('.progress-bar')
 
-
-
-
-
-
-
-
-
-
+flkty.on( 'scroll', function( progress ) {
+  progress = Math.max( 0, Math.min( 1, progress ) );
+  progressBar.style.width = progress * 100 + '%';
+});
