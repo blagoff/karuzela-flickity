@@ -8,30 +8,34 @@
 </head>
 <body>
 
-<div class="carousel">
-	  <div class="carousel-cell" id="burj">
-	  		<div style="background-image: url('https://www.exceedation-lighting.com/photos/projekt_9826_0811061716.jpg'); background-size: cover;"></div>
-	  		 <div class="container">Burdż Chalifa</div>
-	  </div>
 
-	  <div class="carousel-cell" id="shan">
-	  		<div style="background-image: url('https://asialink.unimelb.edu.au/__data/assets/image/0004/2054497/Shanghai.jpg'); background-size: cover;"></div>
-	  		 <div class="container">Shanghai Tower</div>
-	  </div>
-	  <div class="carousel-cell" id="abra">
-	  		<div style="background-image: url('https://i.pinimg.com/originals/74/29/89/7429891bc8015d91902bb7c422130e50.jpg'); background-size: cover;"></div>
-	  		 <div class="container">Abradż al-Bajt</div>
-	  </div>
-	  <div class="carousel-cell" id="ping">
-	  		<div style="background-image: url('https://i.pinimg.com/originals/be/f7/42/bef7428debb7ebfe60b42ba14a7b23d6.jpg'); background-size: cover;"></div>
-	  		 <div class="container">Ping An Finance Center</div>
-	  </div>
-	 <div class="carousel-cell" id="lott">
-	  		<div style="background-image: url('images/Final_circulation_of_the_Kaaba.jpg'); background-size: cover;"></div>
-	  		 <div class="container">Lotte World Tower</div>
-	  </div>
+<script id="template-product-list" type="x-tmpl-mustache">
+<ul>
+{{{image}}}
+</ul>
+</script>
 
+
+ <div id="carousel">
+ 	<div id="gallery"></div>
+	  		<script id="template-product-item" type="x-tmpl-mustache">
+<div class="carousel-cell">
+<li id="{{id}}"> {{ title }}
+	<img src ="{{src}}"/>
+</li>
 </div>
+</script>
+	  </div>
+	</div>
+
+	  
+	
+
+<!-- <div id="page-wrapper" class="container">
+	<div id="gallery"></div>
+</div>-->
+
+
 
 <div class="link">
 <a href="#burj">Burdż Chalifa</a>
@@ -41,12 +45,17 @@
 <a href="#lott">Lotte World Tower</a>
 </div>
 
+
+
 <div class="progress-bar"></div>
 
   <div class="button-group">	
   <button class="button button--previous-wrapped">Previous wrapped</button>
 </div>
 
+
+
+<script type="text/javascript" src="js/mustache.js"></script>
 <script type="text/javascript" src="vendor/flickity.pkgd.min.js"></script>
 <script src="https://unpkg.com/flickity-hash@1/hash.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
