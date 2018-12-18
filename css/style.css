@@ -1,4 +1,4 @@
-.carousel-cell { width: 100%; /* full width */ height: 50vh; /* height of carousel */ margin-right: 10px; }
+.carousel-cell { width: 100%; /* full width */ height: 75vh; /* height of carousel */ margin-right: 10px; }
 
 .carousel-cell > div { width: 100%; /* full width */ height: 50vh; }
 
@@ -10,9 +10,4 @@
 
 .link a { padding: 2%; text-decoration: none; font-family: 'Droid', sans-serif; }
 
-.button--previous-wrapped { position: absolute; top: 350px; left: 90%; }
-
-*{
-	list-style-type: none;
-	color: red;
-}
+.button--previous-wrapped { position: absolute; top: 500px; left: 90%; }

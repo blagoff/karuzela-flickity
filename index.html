@@ -8,35 +8,16 @@
 </head>
 <body>
 
-
-<script id="template-product-list" type="x-tmpl-mustache">
-<ul>
-{{{image}}}
-</ul>
-</script>
-
-
- <div id="carousel">
- 	<div id="gallery"></div>
-	  		<script id="template-product-item" type="x-tmpl-mustache">
-<div class="carousel-cell">
-<li id="{{id}}"> {{ title }}
-	<img src ="{{src}}"/>
-</li>
-</div>
-</script>
-	  </div>
-	</div>
+<div class="gallery"></div>
+<script id="template_gallery" type="x-tmpl-mustache">
+        <div class="carousel-cell" id={{id}} style="background-image: url({{src}})">
+      <div class="container">
+        <h1>{{title}}</h1>
+      </div>
+    </div>
+  </script>
 
 	  
-	
-
-<!-- <div id="page-wrapper" class="container">
-	<div id="gallery"></div>
-</div>-->
-
-
-
 <div class="link">
 <a href="#burj">Burdż Chalifa</a>
 <a href="#shan">Shanghai Tower</a>

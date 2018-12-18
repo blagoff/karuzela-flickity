@@ -1,4 +1,4 @@
-//var elem = document.querySelector('#carousel');
+
 
 var pictures = [
 	{
@@ -29,41 +29,34 @@ var pictures = [
 		title: 'Lotte World Tower', 
 		image: 'background-size: cover',
 		id: 'lott',
-		src: 'images/Final_circulation_of_the_Kaaba.jpg'
+		src: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Final_circulation_of_the_Kaaba.jpg'
 	}
 ];
 
-	var templateList = document.getElementById('template-product-list').innerHTML;
-	var templateItem = document.getElementById('template-product-item').innerHTML;
-	
-	// Następnie zoptymalizujemy drugą z nich, ponieważ tylko ona będzie wykonywana wielokrotnie. 	
+var template_gallery = document.getElementById('template_gallery').innerHTML;
+var gallery = document.querySelector('.gallery');
 
-	Mustache.parse(templateItem);
-	
-	// Teraz stworzymy zmienną, w której chcemy mieć kod HTML wszystkich produktów. 
-	
-	var listItems = '';
-	
+Mustache.parse(template_gallery);
+var renderedTemplates = '';
 
-	
-	
-	for(var i = 0; i < pictures.length; i++){
-		listItems += Mustache.render(templateItem, pictures[i]);
-	}
-	
-	// Po wykonaniu pętli, zmienna listItems zawiera już kod HTML dla wszystkich produktów. Teraz wykorzystamy szablon templateList, aby wstawić produkty do wrappera listy. 
-	
-	var fullProductList = Mustache.render(templateList, {image: listItems});
-	
-	// I w pełni wyrenderowaną listę wyświetlimy na stronie: 
-	
-	gallery.insertAdjacentHTML('beforeend', fullProductList);
+for (var i = 0; i < pictures.length; i++) {
+    renderedTemplates += Mustache.render(template_gallery, pictures[i]);
+}
+gallery.innerHTML = renderedTemplates;
 
-var elem = document.querySelector('#carousel');
+var elem = document.querySelector('.gallery');
+var flkty = new Flickity(elem, {
+    imagesLoaded: true,
+    cellAlign: 'left',
+    pageDots: false,
+    contain: true,
+    hash: true,
+});
+
+var elem = document.querySelector('.gallery');
 
 
 var flkty = new Flickity( elem, {
-  // options
   cellAlign: 'left',
   contain: true,
   imagesLoaded: true,
