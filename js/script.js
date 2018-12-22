@@ -50,13 +50,12 @@ var gallery = document.querySelector('.gallery');
 
 Mustache.parse(template_gallery);
 var renderedTemplates = '';
-
 for (var i = 0; i < pictures.length; i++) {
     renderedTemplates += Mustache.render(template_gallery, pictures[i]);
- 
+
 }
 gallery.innerHTML = renderedTemplates;
-var temp = document.getElementById('przemek');
+
 
 var elem = document.querySelector('.gallery');
 var flkty = new Flickity(elem, {
@@ -77,12 +76,23 @@ previousWrappedButton.addEventListener( 'click', function() {
 
 var progressBar = document.querySelector('.progress-bar')
 
+var map;
+
 flkty.on( 'scroll', function( progress ) {
   progress = Math.max( 0, Math.min( 1, progress ) );
   progressBar.style.width = progress * 100 + '%';
+
+
+});
+
+flkty.on( 'change', function( index ) {
+	console.log(index);
+map.panTo(pictures[index]['cords']);
 });
 
 var infos = document.getElementById('infos');
+
+
 
 window.initMap = function() {
   // The location of Uluru
@@ -90,19 +100,48 @@ window.initMap = function() {
 
 
 
+
   // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 17, center:pictures[1]['cords']});
+
+   map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 17, center:pictures[0]['cords']});
+
+/*for(var i = 0; i < pictures.length; i++)
+{
+	var marker = new google.maps.Marker({
+			position: pictures[i]['cords'],
+			map: map
+		});
+
+	marker.addListener('click', function(){
+		infos.innerHTML = 'You click marker ' + i;
+	});
+}*/
+
+function markerAddListener(marker, i) {
+marker.addListener('click', function() {
+flkty.select(i);
+});
+}
+for (var i = 0; i < pictures.length; i++) {
+var marker = new google.maps.Marker({
+position: pictures[i].cords,
+map: map,
+title: pictures[i].title,
+});
+markerAddListener(marker, i);
+}
+
   // The marker, positioned at Uluru
-var markerOne = new google.maps.Marker({
-			position: pictures[1]['cords'],
+/*var markerOne = new google.maps.Marker({
+			position: pictures[3]['cords'],
 			map: map
 		});
 
 markerOne.addListener('click', function(){
 	infos.innerHTML = 'You clicked markerOne';
 		});	
-
+*/
 // var markerTwo = new google.maps.Marker({
 // 			position: coords2,
 // 			map: map
