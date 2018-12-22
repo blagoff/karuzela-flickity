@@ -66,7 +66,6 @@ var flkty = new Flickity(elem, {
     hash: true,
 });
 
-console.log(gallery);
 
 var previousWrappedButton = document.querySelector('.button--previous-wrapped');
 previousWrappedButton.addEventListener( 'click', function() {
@@ -86,7 +85,7 @@ flkty.on( 'scroll', function( progress ) {
 });
 
 flkty.on( 'change', function( index ) {
-	console.log(index);
+
 map.panTo(pictures[index]['cords']);
 });
 
@@ -95,28 +94,9 @@ var infos = document.getElementById('infos');
 
 
 window.initMap = function() {
-  // The location of Uluru
-  //var burj = {lat: 25.197508, lng: 55.274430};
-
-
-
-
-  // The map, centered at Uluru
 
    map = new google.maps.Map(
       document.getElementById('map'), {zoom: 17, center:pictures[0]['cords']});
-
-/*for(var i = 0; i < pictures.length; i++)
-{
-	var marker = new google.maps.Marker({
-			position: pictures[i]['cords'],
-			map: map
-		});
-
-	marker.addListener('click', function(){
-		infos.innerHTML = 'You click marker ' + i;
-	});
-}*/
 
 function markerAddListener(marker, i) {
 marker.addListener('click', function() {
@@ -130,6 +110,7 @@ map: map,
 title: pictures[i].title,
 });
 markerAddListener(marker, i);
+}
 }
 
   // The marker, positioned at Uluru
@@ -151,12 +132,3 @@ markerOne.addListener('click', function(){
 // 		infos.innerHTML = 'You clicked markerTwo';
 // 	});		
 
-// 	var markerThree = new google.maps.Marker({
-// 		position: coords3,
-// 		map: map
-// 	});
-
-// 	markerThree.addListener('click', function(){
-// 		infos.innerHTML = 'You clicked markerThree';
-// 	});	
-}
