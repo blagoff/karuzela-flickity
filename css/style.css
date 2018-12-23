@@ -1,4 +1,6 @@
-.carousel-cell { width: 100%; /* full width */ height: 50vh; /* height of carousel */ margin-right: 10px; }
+
+.carousel-cell { width: 100%; /* full width */ height: 70vh; /* height of carousel */ margin-right: 10px; background-repeat: no-repeat; }
+
 
 .carousel-cell > div { width: 100%; /* full width */ height: 50vh; }
 
@@ -10,4 +12,27 @@
 
 .link a { padding: 2%; text-decoration: none; font-family: 'Droid', sans-serif; }
 
-.button--previous-wrapped { position: absolute; top: 350px; left: 90%; }
+
+.button--previous-wrapped { 
+	position: absolute; top: 450px; left: 90%;
+	background: orange;
+	color: green;
+	font-family: 'Open Sans Condensed', sans-serif;
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+}
+
+.progress-bar{
+	height: 20px;
+	width: 100%;
+	background-color: green;
+}
+
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+ }
+
+
