@@ -80,14 +80,15 @@ var map;
 flkty.on( 'scroll', function( progress ) {
   progress = Math.max( 0, Math.min( 1, progress ) );
   progressBar.style.width = progress * 100 + '%';
-
-
 });
+
 
 flkty.on( 'change', function( index ) {
 
 map.panTo(pictures[index]['cords']);
+
 });
+
 
 var infos = document.getElementById('infos');
 
